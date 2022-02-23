@@ -1,15 +1,12 @@
-main(){
-  var x := 20;
-  if(x<3 | x > 1){
-  }
-  elif(x>20){
-  
-  }
-  else{
-   x := -0123.67;
-   y := 25 - (-5);
+int main(){
+  var x := 0;
+  int n := 3;
+  string curr;
 
-  } 
-  return;
-   
+  int arr[] := {10, 20, 30}; 
+  while(n>0){
+    sum := sum + arr[n];
+  }
+
+  return sum; 
 }

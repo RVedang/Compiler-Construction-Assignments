@@ -25,12 +25,12 @@ vector<string> Keywords = {
 
 // stray character error
 void throw_error(char ch, int lineNo){
-	cout<<"Lexical error: stray "<< "'" << ch << "'" << " in program at line number = "<< lineNo <<endl;
+	cout<<"Lexical error: char "<< "'" << ch << "'" << " in program at line number = "<< lineNo <<endl;
 }
 
 // stray lexeme error
 void throw_error(string lex, int *index, int lineNo){
-	cout<<"Lexical error: stray "<< "'" << lex << "'" << " in program at line number = "<< lineNo <<endl;
+	cout<<"Lexical error: char "<< "'" << lex << "'" << " in program at line number = "<< lineNo <<endl;
     (*index)++;
 }
 
@@ -47,6 +47,7 @@ void Skip_Comments(string line, int *index, int lineNo){
 	}
 }
 
+// for arithmetic operators
 void Arithmetic_Op(string line, int *index, int lineNo){
 	switch(line[*index]){
 		case '+': token_list.push_back(createToken(300, "+", lineNo)); break;
@@ -57,7 +58,7 @@ void Arithmetic_Op(string line, int *index, int lineNo){
 	(*index)++;
 }
 
-// dfa for relational operators
+// for relational operators
 void Relational_Op(string line,int *index,int lineNo){
 	switch(line[*index]){
 		case '<':
@@ -102,7 +103,7 @@ void Relational_Op(string line,int *index,int lineNo){
 	(*index)++;
 }
 
-//dfa for assignment op
+// for assignment operators
 void Assignment_Op(string line, int* index, int lineNo){
 	(*index)++;
 
@@ -120,7 +121,7 @@ void Assignment_Op(string line, int* index, int lineNo){
 	(*index)++;
 }
 
-// Boolean operators
+// for boolean operators
 void Boolean_Op(string line, int* index, int lineNo) {
 	string lexeme = "";
 	lexeme += line[*index];
@@ -231,9 +232,8 @@ int main(){
 	ifstream file_in; // input file stream
 	ofstream file_out; // output file stream
 
-	string inputFilePath = "/Users/sarvu_don/Desktop/College/Sem 2021-2022 (II)/Compiler construction/project/Compiler-Construction-Assignments/TestCases/tc_3.txt";
-
-	string outputFilePath = "/Users/sarvu_don/Desktop/College/Sem 2021-2022 (II)/Compiler construction/project/Compiler-Construction-Assignments/TestCases/tc_3_op.txt";
+	string inputFilePath = "C:/Users/iamth/Documents/GitHub/Compiler-Construction-Assignments-main/Compiler-Construction-Assignments-main/TestCases/tc_4.txt";
+	string outputFilePath = "C:/Users/iamth/Documents/GitHub/Compiler-Construction-Assignments-main/Compiler-Construction-Assignments-main/TestCases/tc_4_out.txt";
 
 	// open files
 	file_in.open(inputFilePath);
